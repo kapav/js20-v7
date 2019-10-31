@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core'
+import { Router } from '@angular/router'
 
 import {Phrase} from '../shared/interfaces/phrase'
-import { Router } from '@angular/router'
 import { PhraseService } from '../shared/services/phrase.service'
 
 @Component({

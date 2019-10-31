@@ -1,1 +1,12 @@
-<p>phrase-detail works!</p>
+<div *ngIf="phrase; else pose">
+  <h2>Выбранная фраза</h2>
+  Значение: {{ phrase.value }}<br/>
+  Язык: {{ phrase.language }}<br/>
+  <button (click)="goToPhrasePage()">Вернуться</button>
+</div>
+
+<ng-template #pose>
+  <h2>Нет данных о выбранной фразе</h2>
+  <p>Указано нечисловое значение идентификатора или фразы с данным числовым идентификатором не существует</p>
+  <button (click)="goToPhrasePage()">Вернуться</button>
+</ng-template>
