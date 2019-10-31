@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute, Params } from '@angular/router'
 
 import {Phrase} from '../../interfaces/phrase'
 import { PhraseService } from '../../services/phrase.service'
@@ -11,27 +11,36 @@ import { PhraseService } from '../../services/phrase.service'
 })
 export class PhraseListComponent implements OnInit {
 
+  selectedId: number
   phrases: Phrase[]
   
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private phraseService: PhraseService
   ) {}
 
   ngOnInit() {
-    this.phraseService // обращаемся к сервису
-      .getAll() // получаем Promise
-      .then(result => this.phrases = result) // как только
-        // Promise перейдёт в состояние resolved результат
-        // его работы присваиваем свойству phrases
+    this.activatedRoute.params.forEach((params: Params) => {
+      this.selectedId = +params['id']
+      this.phraseService // обращаемся к сервису
+        .getAll() // получаем Promise
+        .then(result => this.phrases = result) // как только
+          // Promise перейдёт в состояние resolved результат
+          // его работы присваиваем свойству phrases
+    })
+  }
+
+  isSelected(phrase: Phrase) {
+    return phrase.id == this.selectedId
   }
 
   onSelect(selected: Phrase) {
-    // При клике по элементу списка перенаправляем
-    // пользователя по адресу /phrase/id
-    // Адрес с обязательным параметром указан в настройках
-    // маршрутизации в файле app.routes.ts
-    this.router.navigate(['phrase', selected.id])
+    // Перенаправление пользователя, используя относительный
+    // путь.
+    this.router.navigate([selected.id], {
+      relativeTo: this.activatedRoute
+    })
   }
 
 }
