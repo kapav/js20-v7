@@ -1,6 +1,6 @@
 import {Routes} from '@angular/router'
 import {HomePageComponent} from './home-page/home-page.component'
-import {PhrasePageComponent} from './phrase-page/phrase-page.component'
+import {PhraseListComponent} from './shared/components/phrase-list/phrase-list.component'
 import {PhraseDetailComponent} from './shared/components/phrase-detail/phrase-detail.component'
 
 export const routes: Routes = [
@@ -14,8 +14,8 @@ export const routes: Routes = [
     component: HomePageComponent
   },
   {
-    path: 'phrases',
-    component: PhrasePageComponent
+    path: 'phrase',
+    component: PhraseListComponent
   },
   {
     path: 'phrase/:id',

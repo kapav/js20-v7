@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router'
+import { Router } from '@angular/router'
 
 import {Phrase} from '../../interfaces/phrase'
 import { PhraseService } from '../../services/phrase.service'
@@ -11,31 +11,19 @@ import { PhraseService } from '../../services/phrase.service'
 })
 export class PhraseListComponent implements OnInit {
 
-  selectedId: number
   phrases: Phrase[]
   
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute, // Добавлен
     private phraseService: PhraseService
   ) {}
 
-  // Обработчик событий изменения параметров адресной строки.
-  ngOnInit() { // Params добавлен в import.
-    this.activatedRoute.params.forEach((params: Params) => {
-      this.selectedId = +params['id']
-      this.phraseService // обращаемся к сервису
-        .getAll() // получаем Promise
-        .then(result => this.phrases = result) // как только
-          // Promise перейдёт в состояние resolved результат
-          // его работы присваиваем свойству phrases
-    })
-  }
-
-  // Для выделения выбранного элемента данный метод принимает
-  // фразу и возвращает булевое значение.
-  isSelected(phrase: Phrase) {
-    return phrase.id === this.selectedId
+  ngOnInit() {
+    this.phraseService // обращаемся к сервису
+      .getAll() // получаем Promise
+      .then(result => this.phrases = result) // как только
+        // Promise перейдёт в состояние resolved результат
+        // его работы присваиваем свойству phrases
   }
 
   onSelect(selected: Phrase) {

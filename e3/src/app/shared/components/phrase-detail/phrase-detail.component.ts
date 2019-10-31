@@ -46,13 +46,13 @@ export class PhraseDetailComponent implements OnInit {
       .then(result => this.phrase = result) */
   }
 
-  goToPhrasePage() {
+  goToPhraseList() {
     let pId = this.phrase ? this.phrase.id : null
     // Объект в массиве с сегментами пути расценивается как
     // факультативные параметры. В адресной строке
     // факультативные параметры будут разделены точкой с
     // запятой.
-    this.router.navigate(['phrases', {
+    this.router.navigate(['phrase', {
       id: pId,
       param1: 'test',
       param2: 123

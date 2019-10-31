@@ -44,6 +44,11 @@ export class PhraseDetailComponent implements OnInit {
     this.service
       .getPhrase(id)
       .then(result => this.phrase = result) */
-}
+  }
+
+  goToPhraseList() {
+    this.router.navigate(['phrase']) // Перенаправляет
+      // пользователя на PhraseListComponent.
+  }
 
 }

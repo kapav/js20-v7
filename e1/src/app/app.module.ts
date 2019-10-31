@@ -10,14 +10,14 @@ import {PhraseService} from './shared/services/phrase.service'
 // Компоненты
 import { AppComponent } from './app.component';
 import {HomePageComponent} from './home-page/home-page.component'
-import {PhrasePageComponent} from './phrase-page/phrase-page.component';
+import {PhraseListComponent} from './shared/components/phrase-list/phrase-list.component';
 import { PhraseDetailComponent } from './shared/components/phrase-detail/phrase-detail.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    PhrasePageComponent,
+    PhraseListComponent,
     PhraseDetailComponent
   ],
   imports: [

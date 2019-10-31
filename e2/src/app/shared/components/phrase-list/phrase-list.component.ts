@@ -1,18 +1,18 @@
-import {Component, OnInit} from '@angular/core'
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
-import {Phrase} from '../shared/interfaces/phrase'
-import { PhraseService } from '../shared/services/phrase.service'
+import {Phrase} from '../../interfaces/phrase'
+import { PhraseService } from '../../services/phrase.service'
 
 @Component({
-  selector: 'app-phrase-page',
-  templateUrl: './phrase-page.component.html',
-  styleUrls: ['./phrase-page.component.scss']
+  selector: 'app-phrase-list',
+  templateUrl: './phrase-list.component.html',
+  styleUrls: ['./phrase-list.component.scss']
 })
-export class PhrasePageComponent implements OnInit {
+export class PhraseListComponent implements OnInit {
 
   phrases: Phrase[]
-
+  
   constructor(
     private router: Router,
     private phraseService: PhraseService
@@ -28,7 +28,7 @@ export class PhrasePageComponent implements OnInit {
 
   onSelect(selected: Phrase) {
     // При клике по элементу списка перенаправляем
-    // пользователя по адресу /phrases/id
+    // пользователя по адресу /phrase/id
     // Адрес с обязательным параметром указан в настройках
     // маршрутизации в файле app.routes.ts
     this.router.navigate(['phrase', selected.id])

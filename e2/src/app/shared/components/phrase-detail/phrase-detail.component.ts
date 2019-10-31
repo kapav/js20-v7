@@ -46,8 +46,8 @@ export class PhraseDetailComponent implements OnInit {
       .then(result => this.phrase = result) */
   }
 
-  goToPhrasePage() {
-    this.router.navigate(['phrases']) // Перенаправляем
+  goToPhraseList() {
+    this.router.navigate(['phrase']) // Перенаправляем
       // пользователя на PhrasePageComponent
   }
 
