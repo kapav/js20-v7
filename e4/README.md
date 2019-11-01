@@ -1,2 +1,2 @@
-# js20-v6-e4
+# js20-v7-e4
 Configuring descendant routes in Angular routing.
