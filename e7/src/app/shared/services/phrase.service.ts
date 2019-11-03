@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import {Phrase} from '../interfaces/phrase'
 
-let phrases = [
+const phrases = [
   new Phrase(1, 'Hello World', 'Английский'),
   new Phrase(2, 'Здравствуй, Вселенная', 'Русский'),
   new Phrase(3, 'Bonjour le monde', 'Французский'),
@@ -11,7 +11,7 @@ let phrases = [
 
 // Promise, который стразу переходит в состояние resolved
 // с данными из массива phrases
-let phrasesPromise = Promise.resolve(phrases)
+const phrasesPromise = Promise.resolve(phrases)
 
 // Сервис для работы с данными.
 // В будущем его можно переделать на работу с сервером.

@@ -30,7 +30,7 @@ export class PhraseDetailComponent implements OnInit {
     // forEach - устанавливаем обработчик на каждое изменение
     // params
     this.activatedRoute.params.forEach((params: Params) => {
-      let id = +params['id'] // Приводим значение параметра id
+      const id = +params['id'] // Приводим значение параметра id
       this.service           // к типу number.
         .getPhrase(id) // Обращаемся к сервису и запрашиваем
           // фразу по id. Получаем Promise.
@@ -47,17 +47,18 @@ export class PhraseDetailComponent implements OnInit {
   }
 
   goToPhraseList() {
-    let pId = this.phrase ? this.phrase.id : null
+    const pId = this.phrase ? this.phrase.id : null
     // Объект в массиве с сегментами пути расценивается как
     // факультативные параметры. В адресной строке
     // факультативные параметры будут разделены точкой с
     // запятой.
-    this.router.navigate(['phrase', {
+    // Использование относительного пути при перенаправлении пользователя.
+    // «../» - подняться на уровень выше
+    this.router.navigate(['../', {
       id: pId,
       param1: 'test',
       param2: 123
-    }]) // Перенаправляем
-      // пользователя на PhrasePageComponent
+    }]) // Перенаправляем пользователя на PhraseListComponent.
   }
 
 }

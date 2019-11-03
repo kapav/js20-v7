@@ -13,7 +13,7 @@ export class PhraseListComponent implements OnInit {
 
   selectedId: number
   phrases: Phrase[]
-  
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute, // Добавлен
