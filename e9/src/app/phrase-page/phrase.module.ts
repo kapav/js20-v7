@@ -4,6 +4,8 @@ import {CommonModule} from '@angular/common'
 
 import {PhraseRoutingModule} from './phrase-routing.module'
 
+import {PhraseDetailResolve} from '../shared/services/phrase-detail-resolve.guard'
+
 import {PhraseListComponent} from './../shared/components/phrase-list/phrase-list.component'
 import {PhraseDetailComponent} from '../shared/components/phrase-detail/phrase-detail.component'
 
@@ -17,6 +19,7 @@ import {PhraseDetailComponent} from '../shared/components/phrase-detail/phrase-d
   declarations: [
     PhraseListComponent,
     PhraseDetailComponent
-  ]
+  ],
+  providers: [PhraseDetailResolve]
 })
 export class PhraseModule {}

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router'
+import {Router, ActivatedRoute} from '@angular/router'
 
 import {Phrase} from '../../interfaces/phrase'
 import {CanComponentDeactivate} from '../../services/can-deactivate.guard'
-import {PhraseService} from '../../services/phrase.service'
 
 @Component({
   selector: 'app-phrase-detail',
@@ -22,8 +21,8 @@ export class PhraseDetailComponent implements OnInit, CanComponentDeactivate {
   // связанную с компонентом, который загружен в outlet
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private service: PhraseService
+    private activatedRoute: ActivatedRoute
+    // private service: PhraseService
   ) { }
 
   ngOnInit() {
@@ -34,20 +33,16 @@ export class PhraseDetailComponent implements OnInit, CanComponentDeactivate {
     // OBSERVABLE PARAMS
     // forEach - устанавливаем обработчик на каждое изменение
     // params
-    this.activatedRoute.params.forEach((params: Params) => {
-      const id = +params['id'] // Приводим значение параметра id
-      this.service           // к типу number.
-        .getPhrase(id) // Обращаемся к сервису и запрашиваем
-          // фразу по id. Получаем Promise.
-        .then(result => {
-          if (result) {
-            this.phrase = result
-            this.editValue = this.phrase.value
-            this.editLanguage = this.phrase.language
-          }
-        }) // Как только
-          // Promise перейдёт в состояние resolved присваиваем
-          // его значение свойству phrase.
+    // phrase - инициализируется с помощью PhraseDetailResolve
+    // объекта, который указан в настройках системы
+    // маршрутизации.
+    // На activatedRout'е обращаемся к свойству data, а не
+    // param как в прошлых примерах.
+    // Данный компонент избавился от зависимости PhraseService.
+    this.activatedRoute.data.forEach((data: { phrase: Phrase }) => {
+      this.phrase = data.phrase
+      this.editValue = data.phrase.value
+      this.editLanguage = data.phrase.language
     })
     // SNAPSHOT
     // Получение начального значения параметра id.
