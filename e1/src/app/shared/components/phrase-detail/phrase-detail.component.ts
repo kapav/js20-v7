@@ -18,7 +18,7 @@ export class PhraseDetailComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private service: PhraseService
+    private phraseService: PhraseService
   ) { }
 
   ngOnInit() {
@@ -31,7 +31,7 @@ export class PhraseDetailComponent implements OnInit {
     // params
     this.activatedRoute.params.forEach((params: Params) => {
       let id = +params['id'] // Приводим значение параметра id
-      this.service           // к типу number.
+      this.phraseService // к типу number.
         .getPhrase(id) // Обращаемся к сервису и запрашиваем
           // фразу по id. Получаем Promise.
         .then(result => this.phrase = result) // Как только
