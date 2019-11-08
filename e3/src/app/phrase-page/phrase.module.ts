@@ -7,14 +7,14 @@ import {PhraseListComponent} from './../shared/components/phrase-list/phrase-lis
 import {PhraseDetailComponent} from '../shared/components/phrase-detail/phrase-detail.component'
 
 @NgModule({
+  declarations: [
+    PhraseListComponent,
+    PhraseDetailComponent
+  ],
   imports: [
     CommonModule,
     PhraseRoutingModule // Настройки маршрутизации для модуля
       // PhraseModule.
-  ],
-  declarations: [
-    PhraseListComponent,
-    PhraseDetailComponent
   ]
 })
 export class PhraseModule {}
