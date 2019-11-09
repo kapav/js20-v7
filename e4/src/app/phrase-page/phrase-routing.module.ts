@@ -27,7 +27,7 @@ import {PhraseDetailComponent} from '../shared/components/phrase-detail/phrase-d
           path: '',
           component: PhraseListComponent, // Содержит
             // <router-outlet>
-            children: [
+          children: [
             {
               path: ':id',
               component: PhraseDetailComponent

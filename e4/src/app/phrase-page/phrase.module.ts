@@ -8,15 +8,15 @@ import {PhraseListComponent} from '../shared/components/phrase-list/phrase-list.
 import {PhraseDetailComponent} from '../shared/components/phrase-detail/phrase-detail.component'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PhraseRoutingModule // Настройки маршрутизации для модуля
-      // PhraseModule.
-  ],
   declarations: [
     PhrasePageComponent,
     PhraseListComponent,
     PhraseDetailComponent
+  ],
+  imports: [
+    CommonModule,
+    PhraseRoutingModule // Настройки маршрутизации для модуля
+      // PhraseModule.
   ]
 })
 export class PhraseModule {}
