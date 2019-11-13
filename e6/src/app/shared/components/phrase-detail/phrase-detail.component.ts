@@ -52,11 +52,17 @@ export class PhraseDetailComponent implements OnInit {
     // факультативные параметры. В адресной строке
     // факультативные параметры будут разделены точкой с
     // запятой.
-    this.router.navigate(['phrase', {
+    // Использование относительного пути при перенаправлении
+    // пользователя.
+    // «../» - подняться на уровень выше
+    this.router.navigate(['../', {
       id: pId,
       param1: 'test',
       param2: 123
-    }]) // Перенаправляем
+    }],
+    {
+      relativeTo: this.activatedRoute
+    })// Перенаправляем
       // пользователя на PhrasePageComponent
   }
 

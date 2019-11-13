@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
     // Возможные результаты работы метода.
     // Если возвращённое значение true, то маршрут будет
     // активирован, иначе - нет.
-    canActivate() {
+  canActivate() {
     let value = true
     console.log('Метод AuthGuard\'а canActivate возвращает: ' + value)
     return true;
