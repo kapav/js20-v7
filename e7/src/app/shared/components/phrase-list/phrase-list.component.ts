@@ -39,11 +39,11 @@ export class PhraseListComponent implements OnInit {
   }
 
   onSelect(selected: Phrase) {
-    // При клике по элементу списка перенаправляем
-    // пользователя по адресу /phrases/id
-    // Адрес с обязательным параметром указан в настройках
-    // маршрутизации в файле app.routes.ts
-    this.router.navigate(['phrase', selected.id])
+    // Перенаправление пользователя, используя относительный
+    // путь.
+    this.router.navigate([selected.id], {
+      relativeTo: this.activatedRoute
+    })
   }
 
 }

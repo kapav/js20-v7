@@ -34,7 +34,7 @@ export class LoginPageComponent implements OnInit {
         // Если строки нет, то перенаправляем на страницу по умолчанию.
         const redirect = this.authService.redirectUrl
           ? this.authService.redirectUrl : '/admin'
-        this.router.navigate([redirect]) // Перенаправлени пользователя.
+        this.router.navigate([redirect]) // Перенаправление пользователя.
       }
     })
   }

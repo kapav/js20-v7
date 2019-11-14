@@ -58,7 +58,10 @@ export class PhraseDetailComponent implements OnInit {
       id: pId,
       param1: 'test',
       param2: 123
-    }]) // Перенаправляем пользователя на PhraseListComponent.
+    }],
+    {
+      relativeTo: this.activatedRoute
+    }) // Перенаправляем пользователя на PhraseListComponent.
   }
 
 }
