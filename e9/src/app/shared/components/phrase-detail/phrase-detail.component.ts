@@ -22,7 +22,6 @@ export class PhraseDetailComponent implements OnInit, CanComponentDeactivate {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute
-    // private service: PhraseService
   ) { }
 
   ngOnInit() {
